@@ -7,8 +7,9 @@ return {
     "nvim-telescope/telescope.nvim",
   },
   config = function()
+    local home = vim.fn.expand("$HOME")
     require("chatgpt").setup({
-      api_key_cmd = "echo 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",
+      api_key_cmd = "gpg --decrypt " .. home .. "/secret.txt.gpg",
     })
   end,
 }
