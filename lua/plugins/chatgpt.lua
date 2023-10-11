@@ -12,4 +12,5 @@ return {
       api_key_cmd = "gpg --decrypt " .. home .. "/chatgpt_api_key.txt.gpg",
     })
   end,
+  enabled = false,
 }
