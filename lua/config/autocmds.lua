@@ -4,7 +4,6 @@
 
 -- 自动切换输入法，需要安装 im-select
 -- https://github.com/daipeihust/im-select
-
 local myAutoGroup = vim.api.nvim_create_augroup("myAutoGroup", {
   clear = true,
 })
@@ -30,3 +29,15 @@ if system == "Darwin" then
     callback = require("utils.im-select").macFocusLost,
   })
 end
+
+-- toggle markdown conceal
+autocmd("FileType", {
+  pattern = "markdown",
+  command = "setlocal conceallevel=0",
+})
+
+-- close markdown spellcheck
+autocmd("FileType", {
+  pattern = "markdown",
+  command = "setlocal nospell",
+})
