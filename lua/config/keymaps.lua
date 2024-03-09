@@ -28,6 +28,11 @@ map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "Go to right window", 
 -- Move text up and down
 map("n", "<A-j>", "<Esc>:m .+1<CR>==gi", { remap = true })
 map("n", "<A-k>", "<Esc>:m .-2<CR>==gi", { remap = true })
+-- Disable arrow keys in normal mode
+vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Insert Mode --
 -- press jk fast to exit insert mode
