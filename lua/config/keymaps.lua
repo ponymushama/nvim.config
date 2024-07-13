@@ -55,14 +55,3 @@ map("x", "J", ":move '>+1<CR>gv-gv", { remap = true })
 map("x", "K", ":move '<-2<CR>gv-gv", { remap = true })
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", { remap = true })
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", { remap = true })
-
--- Search hidden files except .git --
-map(
-  "n",
-  "<leader>ff",
-  "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
-  { remap = true }
-)
-
--- which-key --
-local wk = require("which-key")
