@@ -37,3 +37,12 @@ autocmd("FileType", {
   pattern = "markdown",
   command = "setlocal nospell",
 })
+
+local function disable_diagnostics()
+  vim.diagnostic.enable(false)
+end
+
+autocmd("FileType", {
+  pattern = "markdown",
+  callback = disable_diagnostics,
+})
