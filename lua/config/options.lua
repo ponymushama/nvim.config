@@ -7,10 +7,10 @@ local opt = vim.opt
 opt.spelllang = { "en", "cjk" }
 
 -- set light mode
-vim.o.background = "light"
+opt.background = "light"
 
 -- set encodings
-vim.o.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
+opt.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
 
 -- set wrap
-vim.o.wrap = true
+opt.wrap = true
