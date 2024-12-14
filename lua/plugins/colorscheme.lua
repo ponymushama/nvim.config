@@ -20,6 +20,7 @@ return {
         mason = true,
         markdown = true,
         mini = true,
+        blink_cmp = true,
         native_lsp = {
           enabled = true,
           underlines = {
