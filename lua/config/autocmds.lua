@@ -38,6 +38,7 @@ autocmd("FileType", {
   command = "setlocal nospell",
 })
 
+-- close markdown diagnostic
 local function disable_diagnostics()
   vim.diagnostic.enable(false)
 end
@@ -45,4 +46,20 @@ end
 autocmd("FileType", {
   pattern = "markdown",
   callback = disable_diagnostics,
+})
+
+-- set markdown color theme
+vim.cmd([[
+  augroup MarkdownSettings
+    autocmd!
+    autocmd FileType markdown colorscheme catppuccin-latte
+  augroup END
+]])
+
+-- close markdown statusline
+autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.laststatus = 0
+  end,
 })
