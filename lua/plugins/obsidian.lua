@@ -156,7 +156,7 @@ return {
     -- finder you can attempt it first. Note that if the specified finder
     -- is not installed, or if it the command does not support it, the
     -- remaining finders will be attempted in the original order.
-    finder = "telescope.nvim",
+    finder = "fzf-lua",
   },
   config = function(_, opts)
     require("obsidian").setup(opts)
