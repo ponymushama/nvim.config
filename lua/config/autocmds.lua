@@ -2,7 +2,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- im switch
+-- IM switch
 local autocmd = vim.api.nvim_create_autocmd
 
 local myAutoGroup = vim.api.nvim_create_augroup("myAutoGroup", {
@@ -16,14 +16,6 @@ autocmd("InsertLeave", {
 autocmd("InsertEnter", {
   group = myAutoGroup,
   callback = require("utils.im-select").macInsertEnter,
-})
-autocmd("FocusGained", {
-  group = myAutoGroup,
-  callback = require("utils.im-select").macFocusGained,
-})
-autocmd("FocusLost", {
-  group = myAutoGroup,
-  callback = require("utils.im-select").macFocusLost,
 })
 
 -- toggle markdown conceal
@@ -48,18 +40,15 @@ autocmd("FileType", {
   callback = disable_diagnostics,
 })
 
--- set markdown color theme
-vim.cmd([[
-  augroup MarkdownSettings
-    autocmd!
-    autocmd FileType markdown colorscheme catppuccin-latte
-  augroup END
-]])
+--[[
+-- remove IM switch Focus
 
--- close markdown statusline
-autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.opt_local.laststatus = 0
-  end,
+autocmd("FocusGained", {
+  group = myAutoGroup,
+  callback = require("utils.im-select").macFocusGained,
 })
+autocmd("FocusLost", {
+  group = myAutoGroup,
+  callback = require("utils.im-select").macFocusLost,
+})
+--]]
