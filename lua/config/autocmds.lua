@@ -40,6 +40,14 @@ autocmd("FileType", {
   callback = disable_diagnostics,
 })
 
+-- set markdown color theme
+vim.cmd([[
+augroup MarkdownSettings
+autocmd!
+autocmd FileType markdown colorscheme catppuccin-latte
+augroup END
+]])
+
 --[[
 -- remove IM switch Focus
 
