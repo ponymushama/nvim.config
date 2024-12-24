@@ -2,6 +2,11 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      snippets = {
+        expand = function(snippet, _)
+          return LazyVim.cmp.expand(snippet)
+        end,
+      },
       appearance = {
         -- sets the fallback highlight groups to nvim-cmp's highlight groups
         -- useful for when your theme doesn't support blink.cmp
@@ -46,11 +51,14 @@ return {
       keymap = {
         preset = "enter",
         ["<C-y>"] = { "select_and_accept" },
-        ["<Tab>"] = {
-          LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
-          "fallback",
-        },
       },
+
+      -- Disable for some filetypes
+      enabled = function()
+        return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
+          and vim.bo.buftype ~= "prompt"
+          and vim.b.completion ~= false
+      end,
     },
   },
 }
