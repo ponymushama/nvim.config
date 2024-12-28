@@ -11,11 +11,11 @@ local myAutoGroup = vim.api.nvim_create_augroup("myAutoGroup", {
 
 autocmd("InsertLeave", {
   group = myAutoGroup,
-  callback = require("utils.im-select").macInsertLeave,
+  callback = require("utils.macism").macInsertLeave,
 })
 autocmd("InsertEnter", {
   group = myAutoGroup,
-  callback = require("utils.im-select").macInsertEnter,
+  callback = require("utils.macism").macInsertEnter,
 })
 
 -- toggle markdown conceal
@@ -53,10 +53,10 @@ augroup END
 
 autocmd("FocusGained", {
   group = myAutoGroup,
-  callback = require("utils.im-select").macFocusGained,
+  callback = require("utils.macism").macFocusGained,
 })
 autocmd("FocusLost", {
   group = myAutoGroup,
-  callback = require("utils.im-select").macFocusLost,
+  callback = require("utils.macism").macFocusLost,
 })
 --]]
