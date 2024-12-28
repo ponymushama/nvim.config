@@ -55,3 +55,14 @@ map("x", "J", ":move '>+1<CR>gv-gv", { remap = true })
 map("x", "K", ":move '<-2<CR>gv-gv", { remap = true })
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", { remap = true })
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", { remap = true })
+
+-- delete single character without copying into register
+map("n", "x", '"_x', { remap = true })
+
+-- Vertical scroll and center
+map("n", "<C-d>", "<C-d>zz", { remap = true })
+map("n", "<C-u>", "<C-u>zz", { remap = true })
+
+-- Find and center
+map("n", "n", "nzzzv", { remap = true })
+map("n", "N", "Nzzzv", { remap = true })
