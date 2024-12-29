@@ -9,8 +9,8 @@ opt.spelllang = { "en", "cjk" }
 -- set encodings
 opt.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
 
--- set wrap
-opt.wrap = true
+-- set linebreak
+opt.linebreak = true
 
 -- So that `` is visible in markdown files (default: 1)
 opt.conceallevel = 0
