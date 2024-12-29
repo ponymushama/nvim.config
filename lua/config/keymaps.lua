@@ -20,19 +20,19 @@ end
 -- H 行首 L 行尾
 map({ "n", "x" }, "H", "v:count == 0 ? '^' : 'H'", { expr = true, silent = true })
 map({ "n", "x" }, "L", "v:count == 0 ? '$' : 'L'", { expr = true, silent = true })
--- C-hjkl 切换窗口
-map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Go to left window", remap = true })
-map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "Go to lower window", remap = true })
-map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "Go to upper window", remap = true })
-map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "Go to right window", remap = true })
--- Move text up and down
-map("n", "<A-j>", "<Esc>:m .+1<CR>==gi", { remap = true })
-map("n", "<A-k>", "<Esc>:m .-2<CR>==gi", { remap = true })
 -- Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+map("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+map("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+map("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+map("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+-- delete single character without copying into register
+map("n", "x", '"_x')
+-- Vertical scroll and center
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+-- Find and center
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
 
 -- Insert Mode --
 -- press jk fast to exit insert mode
@@ -40,29 +40,5 @@ map("i", "jk", "<ESC>", { remap = true })
 map("i", "kj", "<ESC>", { remap = true })
 
 -- Visual Mode --
--- Stay in indent mode
-map("v", "<", "<gv", { remap = true })
-map("v", ">", ">gv", { remap = true })
-
--- Move text up and down
-map("v", "<A-j>", ":m .+1<CR>==", { remap = true })
-map("v", "<A-k>", ":m .-2<CR>==", { remap = true })
+-- Keep last yanked when pasting
 map("v", "p", '"_dP', { remap = true })
-
--- Visual Block --
--- Move text up and down
-map("x", "J", ":move '>+1<CR>gv-gv", { remap = true })
-map("x", "K", ":move '<-2<CR>gv-gv", { remap = true })
-map("x", "<A-j>", ":move '>+1<CR>gv-gv", { remap = true })
-map("x", "<A-k>", ":move '<-2<CR>gv-gv", { remap = true })
-
--- delete single character without copying into register
-map("n", "x", '"_x', { remap = true })
-
--- Vertical scroll and center
-map("n", "<C-d>", "<C-d>zz", { remap = true })
-map("n", "<C-u>", "<C-u>zz", { remap = true })
-
--- Find and center
-map("n", "n", "nzzzv", { remap = true })
-map("n", "N", "Nzzzv", { remap = true })
