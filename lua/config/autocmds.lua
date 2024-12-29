@@ -41,22 +41,19 @@ autocmd("FileType", {
 })
 
 -- set markdown color theme
-vim.cmd([[
-augroup MarkdownSettings
-autocmd!
-autocmd FileType markdown colorscheme catppuccin-latte
-augroup END
-]])
+-- vim.cmd([[
+-- augroup MarkdownSettings
+-- autocmd!
+-- autocmd FileType markdown colorscheme catppuccin-latte
+-- augroup END
+-- ]])
 
---[[
 -- remove IM switch Focus
-
-autocmd("FocusGained", {
-  group = myAutoGroup,
-  callback = require("utils.macism").macFocusGained,
-})
-autocmd("FocusLost", {
-  group = myAutoGroup,
-  callback = require("utils.macism").macFocusLost,
-})
---]]
+-- autocmd("FocusGained", {
+--   group = myAutoGroup,
+--   callback = require("utils.macism").macFocusGained,
+-- })
+-- autocmd("FocusLost", {
+--   group = myAutoGroup,
+--   callback = require("utils.macism").macFocusLost,
+-- })
